@@ -28,6 +28,7 @@ export class AddMovie {
   data = inject(MAT_DIALOG_DATA);
   private readonly dialogRef = inject(MatDialogRef);
   private readonly formBuilder = inject(FormBuilder);
+
   protected form = this.formBuilder.group({
     movie: [null, [Validators.required]],
     runtime: [null, [Validators.required]],

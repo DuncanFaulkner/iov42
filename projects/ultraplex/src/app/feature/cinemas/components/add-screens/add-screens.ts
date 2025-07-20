@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -20,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormField,
     MatInputModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './add-screens.html',
   styleUrl: './add-screens.scss',
@@ -27,11 +29,17 @@ import { MatInputModule } from '@angular/material/input';
 export class AddScreens {
   data = inject(MAT_DIALOG_DATA);
   private readonly dialogRef = inject(MatDialogRef);
+  private readonly formBuilder = inject(FormBuilder);
+
+  protected form = this.formBuilder.group({
+    name: [null, [Validators.required]],
+  });
+
   cancel() {
     this.dialogRef.close(false);
   }
 
-  save(screen: string) {
-    this.dialogRef.close(screen);
+  submit() {
+    this.dialogRef.close(this.form.value);
   }
 }

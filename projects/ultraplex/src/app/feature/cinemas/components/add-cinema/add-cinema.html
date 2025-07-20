@@ -1,15 +1,20 @@
-<div mat-dialog-title class="dialog-header">Add cinema</div>
-<mat-dialog-content style="padding-top: 16px">
-  <mat-form-field>
-    <mat-label>Cinema name</mat-label>
-    <input #cinemaName matInput placeholder="Cinema name" />
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div mat-dialog-title class="dialog-header">Add cinema</div>
+  <mat-dialog-content style="padding-top: 16px">
+    <mat-form-field>
+      <mat-label>Cinema name</mat-label>
+      <input formControlName="name" matInput placeholder="Cinema name" />
+      @if(form.get('name')?.hasError('required') || form.get('name')?.touched){
+      <mat-error>This is a required field.</mat-error>
+      }
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
     <div>
-      <button matButton="text" (click)="cancel()">Cancel</button>
-      <button matButton="filled" (click)="save(cinemaName.value)">Save</button>
+      <div>
+        <button matButton="text" (click)="cancel()">Cancel</button>
+        <button matButton="filled" [disabled]="!form.valid">Save</button>
+      </div>
     </div>
-  </div>
-</mat-dialog-actions>
+  </mat-dialog-actions>
+</form>

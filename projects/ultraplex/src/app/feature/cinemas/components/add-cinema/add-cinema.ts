@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
     MatLabel,
     MatFormField,
     MatInputModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './add-cinema.html',
   styleUrl: './add-cinema.scss',
@@ -25,12 +27,17 @@ import { MatInputModule } from '@angular/material/input';
 export class AddCinema {
   data = inject(MAT_DIALOG_DATA);
   private readonly dialogRef = inject(MatDialogRef);
+  private readonly formBuilder = inject(FormBuilder);
+
+  protected form = this.formBuilder.group({
+    name: [null, [Validators.required]],
+  });
 
   cancel() {
     this.dialogRef.close(false);
   }
 
-  save(name: string) {
-    this.dialogRef.close(name);
+  submit() {
+    this.dialogRef.close(this.form.value);
   }
 }

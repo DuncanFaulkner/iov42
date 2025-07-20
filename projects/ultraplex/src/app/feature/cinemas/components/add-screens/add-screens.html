@@ -1,21 +1,23 @@
-<div mat-dialog-title class="dialog-header">
-  <div class="container" mat-dialog-close>
-    <div>Add screens</div>
-    <div class="close-dialog"><mat-icon>close</mat-icon></div>
-  </div>
-</div>
-<mat-dialog-content style="padding-top: 16px">
-  <p>Add screen to: {{data.cinema.name}}</p>
-  <mat-form-field>
-    <mat-label>Screen name</mat-label>
-    <input #screenName matInput placeholder="Screen name" />
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <div>
-    <div>
-      <button matButton="text" (click)="cancel()">Cancel</button>
-      <button matButton="filled" (click)="save(screenName.value)">Save</button>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div mat-dialog-title class="dialog-header">
+    <div class="container" mat-dialog-close>
+      <div>Add screens</div>
+      <div class="close-dialog"><mat-icon>close</mat-icon></div>
     </div>
   </div>
-</mat-dialog-actions>
+  <mat-dialog-content style="padding-top: 16px">
+    <p>Add screen to: {{data.cinema.name}}</p>
+    <mat-form-field>
+      <mat-label>Screen name</mat-label>
+      <input formControlName="name" matInput placeholder="Screen name" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div>
+      <div>
+        <button matButton="text" (click)="cancel()">Cancel</button>
+        <button matButton="filled" [disabled]="!form.valid">Save</button>
+      </div>
+    </div>
+  </mat-dialog-actions>
+</form>

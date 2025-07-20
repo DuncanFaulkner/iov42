@@ -17,8 +17,8 @@ import { CinemaService } from '../../core/services/cinema';
 import { DialogService } from '../../core/services/dialog-service';
 import { SnackbarService } from '../../core/services/snackbar-service';
 import { AddCinema } from './components/add-cinema/add-cinema';
-import { ViewScreens } from './components/view-screens/view-screens';
 import { AddScreens } from './components/add-screens/add-screens';
+import { ViewScreens } from './components/view-screens/view-screens';
 
 @Component({
   selector: 'app-cinemas',
@@ -69,8 +69,6 @@ export class Cinemas {
 
   protected addScreen(cinema: Cinema): void {
     const config: MatDialogConfig = {
-      width: '70vw',
-      height: '40vh',
       data: {
         cinema,
       },
@@ -78,9 +76,11 @@ export class Cinemas {
 
     this.dialogRef = this.dialogService.open(AddScreens, config);
     this.dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+
       if (result) {
         const screen: Cinema = {
-          name: result,
+          name: result.name,
           screens: [],
         };
         this.cinemaService.addScreen(cinema.id, screen).subscribe((data) => {
@@ -102,7 +102,7 @@ export class Cinemas {
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         const cinema: Cinema = {
-          name: result,
+          name: result.name,
           screens: [],
         };
         this.cinemaService.addCinema(cinema).subscribe((data) => {
