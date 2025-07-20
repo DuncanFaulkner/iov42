@@ -1,0 +1,15 @@
+<div mat-dialog-title class="dialog-header">Add cinema</div>
+<mat-dialog-content style="padding-top: 16px">
+  <mat-form-field>
+    <mat-label>Cinema name</mat-label>
+    <input #cinemaName matInput placeholder="Cinema name" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div>
+    <div>
+      <button matButton="text" (click)="cancel()">Cancel</button>
+      <button matButton="filled" (click)="save(cinemaName.value)">Save</button>
+    </div>
+  </div>
+</mat-dialog-actions>

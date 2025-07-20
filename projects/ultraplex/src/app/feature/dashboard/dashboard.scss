@@ -1,0 +1,32 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px 1fr 1fr;
+  align-content: center;
+  .title {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #00993a;
+    color: #fff;
+  }
+}
+.cinema {
+  display: grid;
+  justify-content: center;
+}
+.screens {
+  display: grid;
+  justify-content: center;
+}
+.movies {
+  display: grid;
+  justify-content: center;
+}
+.bookings {
+  display: grid;
+  justify-content: center;
+}

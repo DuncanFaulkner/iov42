@@ -1,0 +1,27 @@
+<div class="dashboard-container">
+  <header class="title">Ultraplex Cinema</header>
+  <div class="cinema">
+    <app-pod (select)="selectCinemas()">
+      <div title>Cinemas</div>
+      <div body>{{ cinemas()?.numberOfElements}}</div>
+    </app-pod>
+  </div>
+  <div class="screens">
+    <app-pod (select)="selectScreening()">
+      <div title>Screens</div>
+      <div body>{{totalScreens()}}</div>
+    </app-pod>
+  </div>
+  <div class="movies">
+    <app-pod (select)="selectMovie()">
+      <div title>Movies</div>
+      <div body>{{movies()?.numberOfElements}}</div>
+    </app-pod>
+  </div>
+  <div class="bookings">
+    <app-pod (select)="selectBooking()">
+      <div title>Bookings</div>
+      <div body>{{booking()?.numberOfElements}}</div>
+    </app-pod>
+  </div>
+</div>

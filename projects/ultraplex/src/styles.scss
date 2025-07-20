@@ -1,0 +1,71 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+} /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.green-success-snackbar {
+  background-color: #2bbe68 !important;
+  color: #fff;
+  font-weight: 500;
+}
+
+.red-error-snackbar {
+  background-color: #ff3737 !important;
+  color: #fff;
+  font-weight: 500;
+}
+
+.orange-warning-snackbar {
+  background-color: #ff6f00 !important;
+  color: #fff;
+  font-weight: 500;
+}
+
+.default-snackbar {
+  font-weight: 500;
+}
+
+@include mat.button-overrides(
+  (
+    text-label-text-color: #00993a,
+    filled-container-color: #00993a,
+    tonal-container-color: #e7e7cd,
+    tonal-label-text-color: #00993a,
+  )
+);

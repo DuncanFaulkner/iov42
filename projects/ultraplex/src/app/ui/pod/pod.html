@@ -1,0 +1,8 @@
+<div class="pod-container" (click)="select.emit()">
+  <div class="pod-title">
+    <ng-content select="[title]"></ng-content>
+  </div>
+  <div class="pod-body">
+    <ng-content select="[body]"></ng-content>
+  </div>
+</div>

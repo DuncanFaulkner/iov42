@@ -1,0 +1,12 @@
+.dialog-header {
+  background-color: #00993a;
+  color: #fff;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .close-dialog {
+    cursor: pointer;
+  }
+}

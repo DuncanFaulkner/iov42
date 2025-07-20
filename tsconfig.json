@@ -22,5 +22,13 @@
     "typeCheckHostBindings": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ultraplex/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ultraplex/tsconfig.spec.json"
+    }
+  ]
 }

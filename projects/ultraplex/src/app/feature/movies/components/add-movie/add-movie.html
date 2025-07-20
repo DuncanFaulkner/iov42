@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div mat-dialog-title class="dialog-header">Add movie</div>
+  <mat-dialog-content style="padding-top: 16px">
+    <div class="add-movie">
+      <div>
+        <mat-form-field>
+          <mat-label>Movie name</mat-label>
+          <input formControlName="movie" matInput placeholder="Movie name" />
+          @if(form.get('movie')?.hasError('required') ||
+          form.get('movie')?.touched){
+          <mat-error>This is a required field.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Runtime</mat-label>
+          <input
+            type="number"
+            formControlName="runtime"
+            matInput
+            placeholder="Runtime"
+          />
+          @if(form.get('runtime')?.hasError('required') ||
+          form.get('runtime')?.touched){
+          <mat-error>This is a required field.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div>
+      <div>
+        <button matButton="text" (click)="cancel()">Cancel</button>
+        <button matButton="filled" [disabled]="!form.valid" type="submit">
+          Save
+        </button>
+      </div>
+    </div>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,48 @@
+<div class="cinema-container">
+  <header class="title">Ultraplex Cinema</header>
+  <div class="card-container">
+    <mat-card>
+      <mat-card-header>Movie listing</mat-card-header>
+      <div class="button-bar">
+        <button matButton="filled" (click)="add()">Add</button>
+      </div>
+      <mat-card-content>
+        <table mat-table [dataSource]="filteredDatasource()  || []">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+          </ng-container>
+          <ng-container matColumnDef="runtime">
+            <th mat-header-cell *matHeaderCellDef>Runtime</th>
+            <td mat-cell *matCellDef="let row">
+              {{row.runtime}} minutes ({{(row.runtime / 60).toFixed(0)}} hours)
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; let even=even; columns: displayedColumns;"
+            [class.striped]="even"
+          ></tr>
+        </table>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="action-buttons">
+          <div>
+            <button matButton="tonal" (click)="dashboard()">Dashboard</button>
+          </div>
+          <div>
+            <mat-paginator
+              [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              [showFirstLastButtons]="true"
+              aria-label="Select page"
+            >
+            </mat-paginator>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
