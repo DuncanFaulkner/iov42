@@ -5,7 +5,7 @@ Things I would add if I had more time.
 Change models to remove duplication of types.
 add more validation, improve layout, improve color and include theme (light/dark).
 
-Fix up unit tests, project currently running in zoneless mode, and test are failing as it's expecting zone.js, this might require a move to a different test runner like Vitest and or the Angular Testing library.
+Fix up unit tests, project currently running in zoneless mode, and test are failing as it's expecting zone.js, (I would have expected Karma to work and to take zoneless into consideration) this might require a move to a different test runner like Vitest and or the Angular Testing library.
 
 complete screenings and booking part of the task.
 
