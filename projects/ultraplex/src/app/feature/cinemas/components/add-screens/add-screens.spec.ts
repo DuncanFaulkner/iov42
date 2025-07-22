@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideHttpClient } from '@angular/common/http';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddScreens } from './add-screens';
 
 describe('AddScreens', () => {
@@ -8,9 +11,16 @@ describe('AddScreens', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddScreens]
-    })
-    .compileComponents();
+      providers: [
+        [
+          provideZonelessChangeDetection(),
+          provideHttpClient(),
+          { provide: MAT_DIALOG_DATA, useValue: {} },
+          { provide: MatDialogRef, useValue: {} },
+        ],
+      ],
+      imports: [AddScreens],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddScreens);
     component = fixture.componentInstance;

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BASE_URL } from '../constants';
@@ -10,8 +10,13 @@ import { Cinema, CinemaResponse } from '../model/cinema-model';
 export class CinemaService {
   private readonly http = inject(HttpClient);
 
+  // getCinemas(): Observable<CinemaResponse> {
+  //   return this.http.get<CinemaResponse>(`${BASE_URL}/cinemas?size=150`);
+  // }
+
   getCinemas(): Observable<CinemaResponse> {
-    return this.http.get<CinemaResponse>(`${BASE_URL}/cinemas?size=150`);
+    const params = new HttpParams().set('size', '150');
+    return this.http.get<CinemaResponse>(`${BASE_URL}/cinemas`, { params });
   }
 
   addCinema(cinema: Cinema): Observable<Cinema> {

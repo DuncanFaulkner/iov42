@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
@@ -9,7 +8,7 @@ import { Pod } from '../../ui/pod/pod';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Pod, JsonPipe],
+  imports: [Pod],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

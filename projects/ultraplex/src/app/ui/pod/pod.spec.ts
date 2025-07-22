@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideHttpClient } from '@angular/common/http';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { Pod } from './pod';
 
 describe('Pod', () => {
@@ -8,9 +10,9 @@ describe('Pod', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Pod]
-    })
-    .compileComponents();
+      providers: [[provideZonelessChangeDetection(), provideHttpClient()]],
+      imports: [Pod],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Pod);
     component = fixture.componentInstance;

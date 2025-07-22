@@ -1,7 +1,7 @@
 export type Movie = {
   id?: number;
-  name: string;
-  runtime: number;
+  name: string | null;
+  runtime: number | null;
 };
 
 export type Sort = {

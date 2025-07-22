@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Cinemas } from './cinemas';
+import { provideHttpClient } from '@angular/common/http';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('Cinemas', () => {
   let component: Cinemas;
@@ -8,9 +10,9 @@ describe('Cinemas', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Cinemas]
-    })
-    .compileComponents();
+      providers: [[provideZonelessChangeDetection(), provideHttpClient()]],
+      imports: [Cinemas],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Cinemas);
     component = fixture.componentInstance;

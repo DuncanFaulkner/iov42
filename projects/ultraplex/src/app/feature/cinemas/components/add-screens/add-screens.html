@@ -6,7 +6,7 @@
     </div>
   </div>
   <mat-dialog-content style="padding-top: 16px">
-    <p>Add screen to: {{data.cinema.name}}</p>
+    <p>Add screen to: {{data.cinema?.name}}</p>
     <mat-form-field>
       <mat-label>Screen name</mat-label>
       <input formControlName="name" matInput placeholder="Screen name" />

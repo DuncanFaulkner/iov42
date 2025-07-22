@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideHttpClient } from '@angular/common/http';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { PageNotFound } from './page-not-found';
 
 describe('PageNotFound', () => {
@@ -8,9 +10,9 @@ describe('PageNotFound', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageNotFound]
-    })
-    .compileComponents();
+      providers: [[provideZonelessChangeDetection(), provideHttpClient()]],
+      imports: [PageNotFound],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PageNotFound);
     component = fixture.componentInstance;
